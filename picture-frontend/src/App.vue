@@ -7,7 +7,7 @@
 </template>
 <script setup lang="ts">
 import BasicLayout from '@/layouts/BasicLayout.vue'
-import { useLoginUserStore } from '@/stores/userLoginUserStore'
+import { useLoginUserStore } from '@/stores/useLoginUserStore'
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
