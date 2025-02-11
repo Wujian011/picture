@@ -35,6 +35,9 @@
               </template>
             </a-dropdown>
           </div>
+          <div v-else>
+            <a-button type="primary" href="/user/login">登录</a-button>
+          </div>
 
         </div>
       </a-col>
@@ -57,6 +60,11 @@ const originItems = [
     icon: () => h(HomeOutlined),
     label: '主页',
     title: '主页',
+  },
+  {
+    key: '/add_picture',
+    label: '创建图片',
+    title: '创建图片',
   },
   {
     key: '/admin/userManage',
