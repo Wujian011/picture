@@ -103,13 +103,15 @@ const columns = [
 
 
 // 数据
-const dataList = ref([])
+const dataList = ref<API.UserVO>([])
 const total = ref(0)
 
 // 搜索条件
 const searchParams = reactive<API.UserQueryRequest>({
   current: 1,
   pageSize: 10,
+  sortField: 'createTime',
+  sortOrder: 'descend',
 })
 
 // 获取数据

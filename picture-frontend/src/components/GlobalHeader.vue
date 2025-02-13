@@ -38,19 +38,19 @@
           <div v-else>
             <a-button type="primary" href="/user/login">登录</a-button>
           </div>
-
         </div>
       </a-col>
     </a-row>
   </div>
 </template>
 <script lang="ts" setup>
-import {computed, h, ref} from 'vue'
+import { computed, h, ref } from 'vue'
 import { HomeOutlined } from '@ant-design/icons-vue'
-import {MenuProps, message} from 'ant-design-vue'
+import { MenuProps, message } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
-import {userLogoutUsingPost} from "@/api/userController";
-import {useLoginUserStore} from "@/stores/useLoginUserStore";
+import { userLogoutUsingPost } from '@/api/userController'
+import { useLoginUserStore } from '@/stores/useLoginUserStore'
+import PictureManagePage from '@/pages/admin/PictureManagePage.vue'
 
 const loginUserStore = useLoginUserStore()
 // 菜单列表
@@ -72,6 +72,11 @@ const originItems = [
     title: '用户管理',
   },
   {
+    key: '/admin/pictureManagePage',
+    label: '图片管理',
+    title: '图片管理',
+  },
+  {
     key: 'others',
     label: h('a', { href: 'https://www.codefather.cn', target: '_blank' }, '编程导航'),
     title: '编程导航',
@@ -83,7 +88,7 @@ const filterMenus = (menus = [] as MenuProps['items']) => {
   return menus?.filter((menu) => {
     if (menu.key.startsWith('/admin')) {
       const loginUser = loginUserStore.loginUser
-      if (!loginUser || loginUser.userRole !== "admin") {
+      if (!loginUser || loginUser.userRole !== 'admin') {
         return false
       }
     }
@@ -93,7 +98,6 @@ const filterMenus = (menus = [] as MenuProps['items']) => {
 
 // 展示在菜单的路由数组
 const items = computed<MenuProps['items']>(() => filterMenus(originItems))
-
 
 // 当前选中菜单
 const current = ref<string[]>(['home'])
@@ -123,7 +127,6 @@ const doLogout = async () => {
     message.error('退出登录失败，' + res.data.message)
   }
 }
-
 </script>
 <style scoped>
 #globalHeader .title-bar {

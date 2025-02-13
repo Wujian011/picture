@@ -86,6 +86,15 @@ public interface UserService extends IService<User> {
     List<UserVO> getUserVOList(List<User> userList);
 
     /**
+     * 是否为管理员
+     *
+     * @param user
+     * @return
+     */
+    boolean isAdmin(User user);
+
+
+    /**
      * 密码加密
      *
      * @param userPassword 用户密码
