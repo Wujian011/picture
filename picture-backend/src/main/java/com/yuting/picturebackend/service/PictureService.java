@@ -10,6 +10,7 @@ import com.yuting.picturebackend.model.entity.Picture;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yuting.picturebackend.model.entity.User;
 import com.yuting.picturebackend.model.vo.PictureVO;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,6 +33,9 @@ public interface PictureService extends IService<Picture> {
     PictureVO uploadPicture(Object inputSource,
                             PictureUploadRequest pictureUploadRequest,
                             User loginUser);
+
+    @Async
+    void clearPictureFile(Picture oldPicture);
 
     /**
      * 获取查询对象
